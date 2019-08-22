@@ -27,13 +27,13 @@ spec:
     spec:
       initContainers:
       - name: init
-        image: alpine:3.10
+        image: alpine:3.10.1
         command:
         - sleep
         - "1"
       containers:
       - name: podinfod
-        image: stefanprodan/podinfo:2.1.3
+        image: stefanprodan/podinfo:2.1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9898
@@ -47,7 +47,7 @@ spec:
         - --random-error=false
         env:
         - name: PODINFO_UI_MESSAGE
-          value: "Greetings human!"
+          value: "Welcome to flux!"
         livenessProbe:
           httpGet:
             path: /healthz
